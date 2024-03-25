@@ -167,7 +167,7 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
       for (let i = 0; i < pastedValue.length; i++) {
         const pastedCharacter = pastedValue.charAt(i);
         const currentValue = inputsRef.current[currentInput].value;
-        if (pastedCharacter.match(inputProps.pattern)) {
+        //if (pastedCharacter.match(inputProps.pattern)) {
           if (!currentValue) {
             inputsRef.current[currentInput].value = pastedCharacter;
             if (inputsRef.current[currentInput].nextElementSibling !== null) {
@@ -176,7 +176,7 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
               currentInput++;
             }
           }
-        }
+        //}
       }
       sendResult();
 
