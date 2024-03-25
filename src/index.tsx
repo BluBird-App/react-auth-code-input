@@ -153,17 +153,15 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
         }
         sendResult();
       }
-      else if (key === 'delete') {
-        if (target.value === '') {
-          if (target.previousElementSibling !== null) {
-            const t = target.nextElementSibling as HTMLInputElement;
-            t.value = '';
-            t.focus();
-            e.preventDefault();
-          }
-        } else {
-          target.value = '';
-        }
+      else if (key === 'Delete') {
+        let t = target;
+        while (t.nextElementSibling !== null) {
+          t.value = (t.nextElementSibling as HTMLInputElement).value;
+          t = t.nextElementSibling as HTMLInputElement;
+        } 
+        t.value = '';
+        e.preventDefault();
+
         sendResult();
       }
     };
